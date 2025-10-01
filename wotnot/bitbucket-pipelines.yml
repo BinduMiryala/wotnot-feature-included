@@ -1,0 +1,27 @@
+image: node:18
+
+pipelines:
+  branches:
+    production:
+      #- step:
+      #    name: Build & Deploy Frontend (Vue.js to S3)
+      #    caches:
+       #     - node
+        #  script:
+         #   - apt-get update && apt-get install -y awscli
+          #  - cd frontend/app
+           # - npm install
+            #- npm run build
+            #- aws s3 sync dist/ s3://$S3_BUCKET --region $S3_REGION --delete --acl public-read   
+
+      - step:
+          name: Deploy to EC2
+          deployment: production
+          script:
+            - apt-get update && apt-get install -y openssh-client
+            - ssh-keyscan -H $EC2_HOST >> ~/.ssh/known_hosts
+            - scp -o StrictHostKeyChecking=no docker-compose.yml ubuntu@$EC2_HOST:/home/ubuntu/
+            - scp -o StrictHostKeyChecking=no -r backend/ ubuntu@$EC2_HOST:/home/ubuntu/
+            - ssh -o StrictHostKeyChecking=no ubuntu@$EC2_HOST 'cd /home/ubuntu && docker-compose down && docker-compose up -d --build'
+
+

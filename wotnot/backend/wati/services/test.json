@@ -1,0 +1,30 @@
+{'messaging_product': 'whatsapp', 'to': '919329809206', 'type': 'template', 'template': {'name': 'sunday_python_30mins_before', 'language': {'code': 'en_US'
+        }, 'components': [
+            {'type': 'header', 'parameters': [
+                    {'type': 'image', 'image': {'id': '2267191723711869'
+                        }
+                    },
+
+                ]
+            }
+        ]
+    }
+}
+
+
+{'messaging_product': 'whatsapp', 'to': '919329809206', 'type': 'template', 'template': {'name': 'sunday_python_30mins_before', 'language': {'code': 'en_US'
+        }, 'components': [
+            {'type': 'header', 'parameters': [
+                    {'type': 'image', 'image': {'id': '9357057544372264'
+                        }
+                    }
+                ]
+            },
+            {'type': 'body', 'parameters': [
+                    {'type': 'text', 'text': 'Himansh'
+                    }
+                ]
+            }
+        ]
+    }
+}
